@@ -1,5 +1,3 @@
-import awsgi
-
 import spotipy
 import time 
 from spotipy.oauth2 import SpotifyOAuth
@@ -84,8 +82,5 @@ def create_spotify_oauth():
         redirect_uri = url_for('redirect_page', _external = True),
         scope = 'user-library-read playlist-modify-public playlist-modify-private'
         )
-
-def lambda_handler(event, context):
-    return awsgi.response(app, event, context, base64_content_types={"image/png"})
 
 app.run(debug=True)
